@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb3071448636439370</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.101459949002-n6t7r5sd8krjk31umf97833anl2gfpff</string>
+                
+            </array>
+        </dict>
+    </array>
+       
+        <key>FacebookAppID</key>
+        <string>3071448636439370</string>
+        <key>FacebookClientToken</key>
+        <string>d472a137b5d071cfd59aa709690184fb</string>
+        <key>FacebookDisplayName</key>
+        <string>TMap</string>
+        <key>LSApplicationQueriesSchemes</key>
+        <array>
+            <string>fbapi</string>
+            <string>fbapi20130214</string>
+            <string>fbapi20130410</string>
+            <string>fbapi20130702</string>
+            <string>fbapi20131010</string>
+            <string>fbapi20131219</string>
+            <string>fbapi20140410</string>
+            <string>fbapi20140116</string>
+            <string>fbapi20150313</string>
+            <string>fbapi20150629</string>
+            <string>fbapi20160328</string>
+            <string>fbauth</string>
+            <string>fb-messenger-share-api</string>
+            <string>fbauth2</string>
+            <string>fbshareextension</string>
+        
+	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>LoginMain</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>UIBackgroundModes</key>
+	<array/>
+</dict>
+</plist>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Tap" representedClassName=".Tap" syncable="YES">
+        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <attribute name="pointtext" optional="YES" attributeType="String"/>
+        <attribute name="seq" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tapID" attributeType="String"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="viewpointtext" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Tap" positionX="-63" positionY="-18" width="128" height="119"/>
+    </elements>
+</model>
