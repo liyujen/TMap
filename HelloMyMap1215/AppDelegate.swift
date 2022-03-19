@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         }
         //Google
-        handled = GIDSignIn.sharedInstance.handle(url)
+        handled = GIDSignIn.sharedInstance().handle(url)
         if handled {
             return true
         }

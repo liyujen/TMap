@@ -29,13 +29,6 @@
 		3F5A39052769A4D100A013ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F5A39042769A4D100A013ED /* Assets.xcassets */; };
 		3F5A39082769A4D100A013ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5A39062769A4D100A013ED /* LaunchScreen.storyboard */; };
 		3F5A39102769E39B00A013ED /* ViewController+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A390F2769E39B00A013ED /* ViewController+Location.swift */; };
-		3F72C99B27E46B1900222E09 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F72C99A27E46B1900222E09 /* FacebookCore */; };
-		3F72C99D27E46B1900222E09 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 3F72C99C27E46B1900222E09 /* FacebookLogin */; };
-		3F72C99F27E46B1900222E09 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 3F72C99E27E46B1900222E09 /* FacebookShare */; };
-		3F72C9A227E46C1700222E09 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3F72C9A127E46C1700222E09 /* FirebaseAuth */; };
-		3F72C9A427E46C1700222E09 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F72C9A327E46C1700222E09 /* FirebaseFirestore */; };
-		3F72C9A627E46C1700222E09 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3F72C9A527E46C1700222E09 /* FirebaseStorage */; };
-		3F72C9A927E46CCD00222E09 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 3F72C9A827E46CCD00222E09 /* GoogleSignIn */; };
 		3F72C9AB27E46D7100222E09 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F72C9AA27E46D7000222E09 /* GoogleService-Info.plist */; };
 		3F72C9B227E476C000222E09 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F72C9AD27E476C000222E09 /* LoadingView.xib */; };
 		3F72C9B327E476C000222E09 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72C9AE27E476C000222E09 /* LoginViewController.swift */; };
@@ -44,6 +37,7 @@
 		3F72C9B627E476C000222E09 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72C9B127E476C000222E09 /* UserInfoViewController.swift */; };
 		3F860B4F27DED9FF00AEB83B /* TapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F860B4E27DED9FF00AEB83B /* TapTableViewController.swift */; };
 		3F860B5127DEDCF900AEB83B /* Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F860B5027DEDCF900AEB83B /* Tap.swift */; };
+		43D3ECF3D6C31333F6DB9A31 /* libPods-TMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D23CE665ED507E78A95AD /* libPods-TMap.a */; };
 		BF0664DD27E30F530037D2AE /* MyImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0664DC27E30F520037D2AE /* MyImageCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +74,10 @@
 		3F72C9B127E476C000222E09 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		3F860B4E27DED9FF00AEB83B /* TapTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapTableViewController.swift; sourceTree = "<group>"; };
 		3F860B5027DEDCF900AEB83B /* Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tap.swift; sourceTree = "<group>"; };
+		550AAC2B4AEE169837EB00CD /* Pods-TMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMap.debug.xcconfig"; path = "Target Support Files/Pods-TMap/Pods-TMap.debug.xcconfig"; sourceTree = "<group>"; };
+		BEAC2026959C90B06BB99BE6 /* Pods-TMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMap.release.xcconfig"; path = "Target Support Files/Pods-TMap/Pods-TMap.release.xcconfig"; sourceTree = "<group>"; };
 		BF0664DC27E30F520037D2AE /* MyImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImageCell.swift; sourceTree = "<group>"; };
+		D40D23CE665ED507E78A95AD /* libPods-TMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,13 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F72C99D27E46B1900222E09 /* FacebookLogin in Frameworks */,
-				3F72C99B27E46B1900222E09 /* FacebookCore in Frameworks */,
-				3F72C99F27E46B1900222E09 /* FacebookShare in Frameworks */,
-				3F72C9A427E46C1700222E09 /* FirebaseFirestore in Frameworks */,
-				3F72C9A227E46C1700222E09 /* FirebaseAuth in Frameworks */,
-				3F72C9A627E46C1700222E09 /* FirebaseStorage in Frameworks */,
-				3F72C9A927E46CCD00222E09 /* GoogleSignIn in Frameworks */,
+				43D3ECF3D6C31333F6DB9A31 /* libPods-TMap.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +142,8 @@
 			children = (
 				3F5A38FA2769A4CF00A013ED /* HelloMyMap1215 */,
 				3F5A38F92769A4CF00A013ED /* Products */,
+				D3D7906EF7D811758CEF2DCC /* Pods */,
+				5A7E4FD030A6E33162175485 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,6 +189,23 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
+		5A7E4FD030A6E33162175485 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D40D23CE665ED507E78A95AD /* libPods-TMap.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D3D7906EF7D811758CEF2DCC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				550AAC2B4AEE169837EB00CD /* Pods-TMap.debug.xcconfig */,
+				BEAC2026959C90B06BB99BE6 /* Pods-TMap.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -203,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F5A390C2769A4D100A013ED /* Build configuration list for PBXNativeTarget "TMap" */;
 			buildPhases = (
+				113863D08877627B140120A6 /* [CP] Check Pods Manifest.lock */,
 				3F5A38F42769A4CF00A013ED /* Sources */,
 				3F5A38F52769A4CF00A013ED /* Frameworks */,
 				3F5A38F62769A4CF00A013ED /* Resources */,
+				C023A0D1CF43178F91B1B546 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,13 +225,6 @@
 			);
 			name = TMap;
 			packageProductDependencies = (
-				3F72C99A27E46B1900222E09 /* FacebookCore */,
-				3F72C99C27E46B1900222E09 /* FacebookLogin */,
-				3F72C99E27E46B1900222E09 /* FacebookShare */,
-				3F72C9A127E46C1700222E09 /* FirebaseAuth */,
-				3F72C9A327E46C1700222E09 /* FirebaseFirestore */,
-				3F72C9A527E46C1700222E09 /* FirebaseStorage */,
-				3F72C9A827E46CCD00222E09 /* GoogleSignIn */,
 			);
 			productName = HelloMyMap1215;
 			productReference = 3F5A38F82769A4CF00A013ED /* TMap.app */;
@@ -250,9 +255,6 @@
 			);
 			mainGroup = 3F5A38EF2769A4CF00A013ED;
 			packageReferences = (
-				3F72C99927E46B1900222E09 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
-				3F72C9A027E46C1700222E09 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				3F72C9A727E46CCD00222E09 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 3F5A38F92769A4CF00A013ED /* Products */;
 			projectDirPath = "";
@@ -283,6 +285,46 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		113863D08877627B140120A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C023A0D1CF43178F91B1B546 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TMap/Pods-TMap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F5A38F42769A4CF00A013ED /* Sources */ = {
@@ -452,6 +494,7 @@
 		};
 		3F5A390D2769A4D100A013ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 550AAC2B4AEE169837EB00CD /* Pods-TMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -486,6 +529,7 @@
 		};
 		3F5A390E2769A4D100A013ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEAC2026959C90B06BB99BE6 /* Pods-TMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -540,71 +584,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		3F72C99927E46B1900222E09 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-		3F72C9A027E46C1700222E09 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
-			};
-		};
-		3F72C9A727E46CCD00222E09 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		3F72C99A27E46B1900222E09 /* FacebookCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F72C99927E46B1900222E09 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookCore;
-		};
-		3F72C99C27E46B1900222E09 /* FacebookLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F72C99927E46B1900222E09 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookLogin;
-		};
-		3F72C99E27E46B1900222E09 /* FacebookShare */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F72C99927E46B1900222E09 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookShare;
-		};
-		3F72C9A127E46C1700222E09 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F72C9A027E46C1700222E09 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		3F72C9A327E46C1700222E09 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F72C9A027E46C1700222E09 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		3F72C9A527E46C1700222E09 /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F72C9A027E46C1700222E09 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
-		};
-		3F72C9A827E46CCD00222E09 /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F72C9A727E46CCD00222E09 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3F4838A427E1801900D6D12B /* Model.xcdatamodeld */ = {

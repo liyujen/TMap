@@ -83,7 +83,7 @@ class UserInfoViewController: UIViewController {
     
     @IBAction func logOut(_ sender: Any) {
         //Google
-        GIDSignIn.sharedInstance.signOut()
+        GIDSignIn.sharedInstance().signOut()
         //Facebook
         if let _ = AccessToken.current {
             LoginManager().logOut()

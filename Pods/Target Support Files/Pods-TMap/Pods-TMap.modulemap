@@ -1,0 +1,6 @@
+module Pods_TMap {
+  umbrella header "Pods-TMap-umbrella.h"
+
+  export *
+  module * { export * }
+}
