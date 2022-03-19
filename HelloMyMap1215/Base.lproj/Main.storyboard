@@ -71,7 +71,7 @@
         <!--My Map View Controller-->
         <scene sceneID="guy-gS-PNs">
             <objects>
-                <viewController storyboardIdentifier="MapVC" id="YLo-FO-h2l" customClass="MyMapViewController" customModule="TMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyMapViewController" id="YLo-FO-h2l" customClass="MyMapViewController" customModule="TMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Ue-fT-MBp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

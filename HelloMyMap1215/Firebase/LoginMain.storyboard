@@ -113,7 +113,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="googleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aVj-gX-4Ml"/>
-                                                    <segue destination="8Ig-T5-cXG" kind="presentation" modalPresentationStyle="fullScreen" id="BG2-3F-76J"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -144,16 +143,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="185.50724637681162" y="16.741071428571427"/>
-        </scene>
-        <!--MapVC-->
-        <scene sceneID="3LW-sh-Xwe">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="MapVC" storyboardName="Main" referencedIdentifier="MapVC" id="8Ig-T5-cXG" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="JpD-hQ-UmS"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZPh-Wz-OXn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="185" y="466"/>
         </scene>
         <!--User Info View Controller-->
         <scene sceneID="Te1-Cu-EKR">

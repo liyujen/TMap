@@ -37,6 +37,8 @@
 		3F72C9B627E476C000222E09 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72C9B127E476C000222E09 /* UserInfoViewController.swift */; };
 		3F860B4F27DED9FF00AEB83B /* TapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F860B4E27DED9FF00AEB83B /* TapTableViewController.swift */; };
 		3F860B5127DEDCF900AEB83B /* Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F860B5027DEDCF900AEB83B /* Tap.swift */; };
+		3FC7703F27E5E3B00028A338 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7703E27E5E3B00028A338 /* UIView+.swift */; };
+		3FC7704127E5EE7B0028A338 /* StoryboardInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7704027E5EE7B0028A338 /* StoryboardInstantiatable.swift */; };
 		43D3ECF3D6C31333F6DB9A31 /* libPods-TMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D23CE665ED507E78A95AD /* libPods-TMap.a */; };
 		BF0664DD27E30F530037D2AE /* MyImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0664DC27E30F520037D2AE /* MyImageCell.swift */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,8 @@
 		3F72C9B127E476C000222E09 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		3F860B4E27DED9FF00AEB83B /* TapTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapTableViewController.swift; sourceTree = "<group>"; };
 		3F860B5027DEDCF900AEB83B /* Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tap.swift; sourceTree = "<group>"; };
+		3FC7703E27E5E3B00028A338 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		3FC7704027E5EE7B0028A338 /* StoryboardInstantiatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiatable.swift; sourceTree = "<group>"; };
 		550AAC2B4AEE169837EB00CD /* Pods-TMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMap.debug.xcconfig"; path = "Target Support Files/Pods-TMap/Pods-TMap.debug.xcconfig"; sourceTree = "<group>"; };
 		BEAC2026959C90B06BB99BE6 /* Pods-TMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMap.release.xcconfig"; path = "Target Support Files/Pods-TMap/Pods-TMap.release.xcconfig"; sourceTree = "<group>"; };
 		BF0664DC27E30F520037D2AE /* MyImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImageCell.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 		3F5A38FA2769A4CF00A013ED /* HelloMyMap1215 */ = {
 			isa = PBXGroup;
 			children = (
+				3FC7703D27E5E38C0028A338 /* Extansions */,
 				3F72C9AC27E476AA00222E09 /* Firebase */,
 				3F4838C727E3666700D6D12B /* Map */,
 				3F4838A927E186BB00D6D12B /* Model */,
@@ -187,6 +192,15 @@
 				3F72C9B127E476C000222E09 /* UserInfoViewController.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		3FC7703D27E5E38C0028A338 /* Extansions */ = {
+			isa = PBXGroup;
+			children = (
+				3FC7704027E5EE7B0028A338 /* StoryboardInstantiatable.swift */,
+				3FC7703E27E5E3B00028A338 /* UIView+.swift */,
+			);
+			path = Extansions;
 			sourceTree = "<group>";
 		};
 		5A7E4FD030A6E33162175485 /* Frameworks */ = {
@@ -338,8 +352,10 @@
 				3F72C9B527E476C000222E09 /* RegisterViewController.swift in Sources */,
 				3F4838A827E1862800D6D12B /* CoreDataHelper.swift in Sources */,
 				3F4838B327E1CBC000D6D12B /* HGImageCompleteButton.swift in Sources */,
+				3FC7704127E5EE7B0028A338 /* StoryboardInstantiatable.swift in Sources */,
 				3F5A39002769A4CF00A013ED /* ViewController.swift in Sources */,
 				3F4838A327E0C06600D6D12B /* TableViewCell.swift in Sources */,
+				3FC7703F27E5E3B00028A338 /* UIView+.swift in Sources */,
 				3F4838BD27E2148300D6D12B /* MyMapViewController.swift in Sources */,
 				3F4838B427E1CBC000D6D12B /* HGImagePickerController.swift in Sources */,
 				3F4838A127E06F5C00D6D12B /* TapViewController.swift in Sources */,

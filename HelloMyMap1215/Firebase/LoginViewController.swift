@@ -10,7 +10,7 @@ import Firebase
 import FBSDKLoginKit
 import GoogleSignIn
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,GIDSignInDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -37,7 +37,10 @@ class LoginViewController: UIViewController {
         fbLoginButton.delegate = self
         fbLoginButton.permissions = ["public_profile", "email"]
         fbLoginButtonView.addSubview(fbLoginButton)
-
+        
+        //Google
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance()?.presentingViewController = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,11 +61,11 @@ class LoginViewController: UIViewController {
                self.presentedViewController == nil {
                 self.emailTextField.text = ""
                 self.passwordTextField.text = ""
+              
 //                self.performSegue(withIdentifier: "LoginSuccessSegue", sender: nil)
-//                 let mapvc = self.storyboard?.instantiateViewController(withIdentifier: "MapVC")
-//                self.navigationController?.pushViewController(mapvc, animated: true)
+                
 //
-                   
+                
             }
             
         })
@@ -70,7 +73,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        setLoadingView(false)
+        view.setLoadingView(false)
         Auth.auth().removeStateDidChangeListener(handle!)
     }
     
@@ -82,23 +85,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func dissmissKeyboardWithRegisterButton(_ sender: Any) {
         view.endEditing(true)
-    }
-    
-    func setLoadingView(_ status: Bool) {
-        if status {
-            //加入毛玻璃效果 xib
-            if let array = Bundle.main.loadNibNamed("LoadingView", owner: nil, options: nil) {
-                loadingView = array.first as? UIView
-                loadingView?.frame.origin = CGPoint(x: 0, y: 0)
-                loadingView?.frame.size = UIScreen.main.bounds.size
-                if loadingView != nil {
-                    view.addSubview(loadingView!)
-                }
-            }
-        } else {
-            //移除
-            loadingView?.removeFromSuperview()
-        }
     }
     
     func alert(title: String) {
@@ -122,11 +108,11 @@ class LoginViewController: UIViewController {
             return
         }
         
-        setLoadingView(true)
+        view.setLoadingView(true)
         //Firebase
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             guard error == nil else {
-                self.setLoadingView(false)
+                self.view.setLoadingView(false)
                 if let errorInfo = error?.localizedDescription {
                     print("---登入失敗---\(errorInfo)")
                     self.alert(title: errorInfo)
@@ -137,55 +123,51 @@ class LoginViewController: UIViewController {
         }
     }
     
+    
+    
+    fileprivate func moveToMapViewController() {
+        let mapvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MyMapViewController")
+        mapvc.modalPresentationStyle = .overFullScreen
+        self.present(mapvc, animated: true, completion: nil)
+    }
+    
+    //google登入
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print(error)
+            return
+        }
+        guard let authentication = user.authentication else { return }
+        
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,accessToken: authentication.accessToken)
+        
+        
+        print("Google 登入成功")
+        view.setLoadingView(true)
+        
+        //Firebase
+        Auth.auth().signIn(with: credential) { [weak self] result, error in
+            self!.view.setLoadingView(false)
+            guard let self = self else {
+                return
+            }
+            guard error == nil else {
+                self.alert(title: "\(error!.localizedDescription)")
+                return
+            }
+            print("Firebase 登入成功")
+            self.moveToMapViewController()
+            
+        }
+        
+        
+    }
+    
+    
     @IBAction func googleLogin(_ sender: Any) {
         //Google
-        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-        
-        let config = GIDConfiguration(clientID: clientID)
-        
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
-            
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            
-            guard let authentication = user?.authentication,
-                  let idToken = authentication.idToken else {
-                return
-            }
-            print("Google 登入成功")
-            setLoadingView(true)
-            //Firebase
-            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: authentication.accessToken)
-            
-            Auth.auth().signIn(with: credential) { [weak self] result, error in
-                guard let self = self else {
-                    self?.setLoadingView(false)
-                    return
-                }
-                guard error == nil else {
-                    self.setLoadingView(false)
-                    self.alert(title: "\(error!.localizedDescription)")
-                    return
-                }
-                
-                print("Firebase 登入成功")
-            }
-        }
+        GIDSignIn.sharedInstance()?.signIn()
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 //Facebook
@@ -202,23 +184,24 @@ extension LoginViewController: LoginButtonDelegate {
         guard let token = result?.token else { return }
 
         print("FB 登入成功")
-        setLoadingView(true)
+        view.setLoadingView(true)
         //Firebase
         let credential = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
 
         Auth.auth().signIn(with: credential) { [weak self] result, error in
             guard let self = self else {
-                self?.setLoadingView(false)
+                self!.view.setLoadingView(false)
                 return
             }
             guard error == nil else {
-                self.setLoadingView(false)
+                self.view.setLoadingView(true)
                 print("Firebase 登入失敗 \(error!.localizedDescription)")
                 self.alert(title: "\(error!.localizedDescription)")
                 return
             }
 
             print("Firebase 登入成功")
+            self.moveToMapViewController()
         }
 
     }
