@@ -15,27 +15,21 @@ extension ViewController:CLLocationManagerDelegate {
          assertionFailure("Invalid locations.")
           return
       }
+//        let coordinate = mainMapView.centerCoordinate
        let coordinate = location.coordinate
-          print("Lat: \(coordinate.latitude), Lon: \(coordinate.longitude)")
+//          print("Lat: \(coordinate.latitude), Lon: \(coordinate.longitude)")
 
       //  Add a annotation view.
         var storeCoordinate = coordinate
     storeCoordinate.latitude += 0.0001
     storeCoordinate.longitude  += 0.0001
-    
-//    let annotation = MKPointAnnotation()
-//    annotation.coordinate = storeCoordinate
-//    annotation.title = "肯德基"
-//    annotation.subtitle = "蛋塔真好吃"
-//    
-//    mainMapView.addAnnotation(annotation)
 //        Move and Zoom the map
         
 //
-//        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-//        let region = MKCoordinateRegion(center: coordinate, span: span)
-//
-//        mainMapView.setRegion(region, animated: true)
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+
+        mainMapView.setRegion(region, animated: true)
         
     }
 }
@@ -58,7 +52,7 @@ extension ViewController:CLLocationManagerDelegate {
 //        
 //    }
 //}
-extension ViewController: MKMapViewDelegate{
+//extension ViewController: MKMapViewDelegate{
 //    func mapView(_ mapView: MKMapView,regionDidChangeAnimated animated: Bool){
 //        let region = mapView.region
 //        let center = region.center
@@ -165,5 +159,5 @@ extension ViewController: MKMapViewDelegate{
 //        print("\(postCode)\(countryCode)\(description)")
 //    }
 //}
-}
+//}
 //

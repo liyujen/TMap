@@ -38,7 +38,7 @@ class TapViewController: UIViewController, UIImagePickerControllerDelegate &  UI
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var toorbar: UIToolbar!
     
-    var tap : Tap!
+    var tap : Tap?
     var delegate : TapViewControllerDelegate?
     var myAsset : PHAsset!
     override func viewDidLoad() {
@@ -47,11 +47,11 @@ class TapViewController: UIViewController, UIImagePickerControllerDelegate &  UI
         self.collectionView.dataSource = self
         
         //主標
-        self.pointLabel.text = self.tap.pointtext
+        self.pointLabel.text = self.tap?.pointtext
         //副標
-        self.viewPointLabel.text = self.tap.viewpointtext
+        self.viewPointLabel.text = self.tap?.viewpointtext
         //說明文字
-        self.textView.text = self.tap.text
+        self.textView.text = self.tap?.text
         //圖片
      
        // self.imageView.image = self.tap.image()
@@ -70,9 +70,9 @@ class TapViewController: UIViewController, UIImagePickerControllerDelegate &  UI
     }
     //done之後儲存
     @IBAction func done(_ sender: Any) {
-        self.tap.pointtext = self.pointLabel.text
-        self.tap.viewpointtext = self.viewPointLabel.text
-        self.tap.text = self.textView.text
+        self.tap?.pointtext = self.pointLabel.text
+        self.tap?.viewpointtext = self.viewPointLabel.text
+        self.tap?.text = self.textView.text
 //        
         //self.tap.image = self.imageView.image
 //        if let image = self.imageView.image,
@@ -94,7 +94,8 @@ class TapViewController: UIViewController, UIImagePickerControllerDelegate &  UI
         NotificationCenter.default.post(name: .tapUpdated, object: nil, userInfo:["tap":self.tap!])
         self.navigationController?.popViewController(animated: true)
     }
-    @IBAction func camera(_ sender: Any) {
+    @IBAction func addImageBtn(_ sender: Any) {
+   
         
 //        let photoPicker = UIImagePickerController()
 //        photoPicker.delegate = self
