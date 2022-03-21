@@ -1,14 +1,12 @@
-////
-////  TapTableViewController.swift
-////  TMap
-////
-////  Created by student on 2022/3/14.
-////
+//
+//  TapTableViewController.swift
+//  TMap
+//
+//  Created by student on 2022/3/14.
+//
 //
 //import UIKit
 //import CoreData
-//import MapKit
-//import CoreLocation
 //class TapTableViewController: UITableViewController{
 //
 //    @IBOutlet weak var tapView: UITableView!
@@ -16,13 +14,8 @@
 //    //載入資料
 //    required init?(coder: NSCoder) {
 //        super.init (coder: coder)
-//        self.loadFromCoreData()
-//        //假資料
-//        //        for i in 0..<3 {
-//        //            let  tap = Tap()
-//        //            tap.pointtext = "地點\(i)"
-//        //            tap.viewpointtext = "\(i)"
-//        //            data.append(tap)
+//        self.AnnotationData()
+//
 //        //        }
 //
 //        NotificationCenter.default.addObserver(self, selector: #selector(finishUpdate(notification:)), name: .tapUpdated , object: nil)
@@ -56,26 +49,26 @@
 //    }
 //    //Coredata
 //    // MARK: Core data
-//    func saveToCoreData(){
-//        CoreDataHelper.shared.saveContext()
+////    func saveToCoreData(){
+////        CoreDataHelper.shared.saveContext()
+////
+////    }
+////
+////    func loadFromCoreData(){
 //
-//    }
-//
-//    func loadFromCoreData(){
-//
-//        let moc = CoreDataHelper.shared.managedObjectContext()
-//        let request = NSFetchRequest<LocationData>(entityName: "Tap")
-//
-//        moc.performAndWait{
-//            do{
-//                //執行查詢的請求,回傳[Tap]
-//                let result = try moc.fetch(request)
-//                self.data = result
-//            }catch{
-//                print("error\(error)")
-//                self.data = []
-//            }
-//        }
+////        let moc = CoreDataHelper.shared.managedObjectContext()
+////        let request = NSFetchRequest<LocationData>(entityName: "Tap")
+////
+////        moc.performAndWait{
+////            do{
+////                //執行查詢的請求,回傳[Tap]
+////                let result = try moc.fetch(request)
+////                self.data = result
+////            }catch{
+////                print("error\(error)")
+////                self.data = []
+////            }
+////        }
 //    }
 //    override func setEditing(_ editing: Bool, animated: Bool) {
 //        super.setEditing(editing, animated: true)
@@ -87,22 +80,22 @@
 //        //self.tableView.isEditing = !isEditing
 //        self.tableView.setEditing(!isEditing, animated: true)
 //    }
-//    @IBAction func addTap(_ sender: Any) {
-//        let moc = CoreDataHelper.shared.managedObjectContext()
-//        let tap = LocationData(context: moc)
-//        tap.pointtext = " New Tap"
-//        self.data.append(tap)
-//
-//        let  indexPath  = IndexPath(row:self.data.count-1, section:0)
-//        self.tableView.insertRows(at:[indexPath], with:.automatic)
-//        self.saveToCoreData()
+////    @IBAction func addTap(_ sender: Any) {
+////        let moc = CoreDataHelper.shared.managedObjectContext()
+////        let tap = LocationData(context: moc)
+////        tap.pointtext = " New Tap"
+////        self.data.append(tap)
+////
+////        let  indexPath  = IndexPath(row:self.data.count-1, section:0)
+////        self.tableView.insertRows(at:[indexPath], with:.automatic)
+////        self.saveToCoreData()
 //
 //        //        if let noteVC = self.storyboard?.instantiateViewController(withIdentifier: "noteVC") as? NoteViewController{
 //        //            //自己產生UINavigationController  點+上方的bar
 //        //            noteVC.delegate = self
 //        //            let naviCtrl = UINavigationController(rootViewController: noteVC)
 //        //            self.present(naviCtrl, animated: true, completion: nil)
-//    }
+//   // }
 //
 //
 //    // MARK: - Table view data source

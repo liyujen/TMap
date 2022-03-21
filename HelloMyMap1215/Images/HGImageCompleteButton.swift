@@ -33,6 +33,7 @@ class HGImageCompleteButton: UIView {
                 numLabel.isHidden = false
                 numLabel.text = "\(num)"
                 playAnimate()
+               
             }
         }
     }

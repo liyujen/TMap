@@ -26,7 +26,7 @@ class MyMapViewController: UIViewController{
     var myMapViewTapRecognizer : UITapGestureRecognizer?
     
     var annotationDataGetter: AnnotationDataGetter?
-    
+    //addPictureMode開關
     var addPictureMode : DarwinBoolean? {
         didSet{
             if addPictureMode == true{
@@ -69,7 +69,7 @@ class MyMapViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        myMapView.showsUserLocation = true
         configLocationManager()
         centerMapOnUserLocation()
         configComponent()
@@ -113,7 +113,6 @@ class MyMapViewController: UIViewController{
         
         let alertController = UIAlertController(title: "確定選取正確座標", message: "", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "新增", style: .default, handler: { action in
-            //
             print("使用者按下ok")
             
             let tapViewController = self.storyboard?.instantiateViewController(withIdentifier: "TapViewController")
@@ -145,7 +144,7 @@ class MyMapViewController: UIViewController{
     
     
     func centerMapOnUserLocation() {
-        
+        print("使用者位置在這")
         guard let coordinates = locationManager.location?.coordinate else { return }
         
         let zoomWidth = myMapView.visibleMapRect.size.width
@@ -163,20 +162,20 @@ class MyMapViewController: UIViewController{
 
 
 extension MyMapViewController: CLLocationManagerDelegate{
-    func mymapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        //   /*
-        let identifier = "default"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-        if annotationView==nil{
-            //如果無指定圖片的話，將圖標的設定為圖，記得圖片需要事先放進Assets Folder
-            annotationView=MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView?.image=UIImage(named: "pointRed.png")
-        }else{
-            annotationView?.annotation=annotation
-        }
-        return annotationView
-        
-    }
+//    func mymapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        //   /*
+//        let identifier = "default"
+//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+//        if annotationView==nil{
+//            //如果無指定圖片的話，將圖標的設定為圖，記得圖片需要事先放進Assets Folder
+//            annotationView=MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+//            annotationView?.image=UIImage(named: "pointRed.png")
+//        }else{
+//            annotationView?.annotation=annotation
+//        }
+//        return annotationView
+//
+//    }
     
     
     
@@ -192,7 +191,7 @@ extension MyMapViewController: CLLocationManagerDelegate{
 extension MyMapViewController: TapViewControllerDelegate{
     
     func didPublishLocationData(data: AnnotationData) {
-        
+        //上傳firebase
         let ref = Database.database().reference().child("Annotation/" + Auth.auth().currentUser!.uid + "/" + NSUUID().uuidString)
         
         

@@ -40,7 +40,9 @@ class TapViewController: UIViewController, UIImagePickerControllerDelegate &  UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyImageCell
         cell.imageView.image = self.photos[indexPath.row]
+       
         return cell
+        
     }
     
     //主標題
@@ -112,7 +114,6 @@ class TapViewController: UIViewController, UIImagePickerControllerDelegate &  UI
         //確認照片都上傳了
         photoNumberNeedToPut = photos.count
         successedPutPhotoNumber = 0
-        
         view.setLoadingView(true)
         
         for i in 0 ... photos.count - 1 {
@@ -179,6 +180,7 @@ class TapViewController: UIViewController, UIImagePickerControllerDelegate &  UI
             
         }
     }
+  
     //多張圖片
     func convertImageFromAsset(asset: PHAsset) -> UIImage {
         let manager = PHImageManager.default()
