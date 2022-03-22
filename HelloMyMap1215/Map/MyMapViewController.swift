@@ -17,10 +17,14 @@ class MyMapViewController: UIViewController{
     @IBOutlet weak var addTap: UIButton!
     @IBOutlet weak var myMapView: MKMapView!
     
+    @IBOutlet weak var mapTypeChanged: UISegmentedControl!
     @IBOutlet weak var changeModeBtn: UIButton!
     
+    @IBOutlet var imageV: UIImageView!
     
     @IBOutlet weak var hintLabel: UILabel!
+    
+    
     let locationManager = CLLocationManager()
     
     var myMapViewTapRecognizer : UITapGestureRecognizer?
@@ -34,12 +38,15 @@ class MyMapViewController: UIViewController{
                 changeModeBtn.isHidden = true
                 addTap.isHidden = true
                 hintLabel.isHidden = false
+                mapTypeChanged.isHidden = false
+                centerOnUserLocation()
                 myMapView.addGestureRecognizer(myMapViewTapRecognizer!)
             }else if addPictureMode == false{
                 print("addPictureMode == false")
                 changeModeBtn.isHidden = false
                 addTap.isHidden = false
                 hintLabel.isHidden = true
+                mapTypeChanged.isHidden = true
                 myMapView.removeGestureRecognizer(myMapViewTapRecognizer!)
             }
         }
@@ -76,7 +83,31 @@ class MyMapViewController: UIViewController{
         configDataGetter()
         
         addPictureMode = false
+        
+        //出現方法
+        //self.imageV.frame
+        // imageV.image =
+        // self.view.addSubview(imageV)
+        //  imageV.isHidden =
     }
+    
+    @IBAction func mapTypeChange(_ sender: UISegmentedControl) {
+        
+        let targetIndex = sender.selectedSegmentIndex
+        switch targetIndex{
+        case 0:
+            myMapView.mapType = .standard
+        case 1:
+            myMapView.mapType = .satellite
+        case 2:
+            myMapView.mapType = .hybrid
+        case 3:
+            myMapView.mapType = .hybridFlyover
+        default:
+            myMapView.mapType = .standard
+        }
+    }
+    
     
     
     func configComponent(){
@@ -109,7 +140,9 @@ class MyMapViewController: UIViewController{
         
         //將屏幕上的x,y轉換為地圖上的經緯度
         print(tapMapCoordinate)
-        
+//        let region =
+//        MKCoordinateRegionMakeWithDistance(MKUserLocation, 250, 250)
+//        self.myMapView.setRegion(region, animated: false)
         
         let alertController = UIAlertController(title: "確定選取正確座標", message: "", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "新增", style: .default, handler: { action in
@@ -156,26 +189,40 @@ class MyMapViewController: UIViewController{
         myMapView.setRegion(coordinateRegion, animated: true)
         
     }
+
+func centerOnUserLocation() {
+    print("使用者位置在這")
+    guard let coordinates = locationManager.location?.coordinate else { return }
+    
+    let zoomWidth = myMapView.visibleMapRect.size.width
+    var meter : Double = 20
+    if zoomWidth < 3694 {
+        meter = zoomWidth * 20/3694
+    }
+    let coordinateRegion = MKCoordinateRegion(center: coordinates, latitudinalMeters: meter, longitudinalMeters: meter)
+    myMapView.setRegion(coordinateRegion, animated: true)
+    
+}
 }
 
 
 
 
 extension MyMapViewController: CLLocationManagerDelegate{
-//    func mymapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        //   /*
-//        let identifier = "default"
-//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//        if annotationView==nil{
-//            //如果無指定圖片的話，將圖標的設定為圖，記得圖片需要事先放進Assets Folder
-//            annotationView=MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            annotationView?.image=UIImage(named: "pointRed.png")
-//        }else{
-//            annotationView?.annotation=annotation
-//        }
-//        return annotationView
-//
-//    }
+    //    func mymapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    //        //   /*
+    //        let identifier = "default"
+    //        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+    //        if annotationView==nil{
+    //            //如果無指定圖片的話，將圖標的設定為圖，記得圖片需要事先放進Assets Folder
+    //            annotationView=MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+    //            annotationView?.image=UIImage(named: "pointRed.png")
+    //        }else{
+    //            annotationView?.annotation=annotation
+    //        }
+    //        return annotationView
+    //
+    //    }
     
     
     
@@ -246,10 +293,16 @@ extension MyMapViewController:MKMapViewDelegate{
             
             if(annotationData?.photosUrl != nil && (annotationData?.photosUrl!.count)! > 0){
                 let url : String = (annotationData?.photosUrl![0])!
-                AF.request(url).response { (response) in
+                AF.request(url).response { [self] (response) in
                     guard let data = response.data, let image = UIImage(data: data)
                     else { return }
                     imageView.image = image
+                    
+                    //                    //出現方法
+                    //                    self.imageV.frame
+                    //                    imageV.image = UIImage(data: data)
+                    //                    self.myMapView.addSubview(imageV)
+                    //                   // imageV.isHidden = false
                 }
             }
             
