@@ -211,6 +211,10 @@ extension MyMapViewController:MKMapViewDelegate{
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
+        if annotation is MKUserLocation{
+            return nil
+        }
+        
         print("mkMarker 跑到")
         
         // 創建一個重複使用的 AnnotationView
@@ -250,11 +254,14 @@ extension MyMapViewController:MKMapViewDelegate{
             }
             
             imageView.contentMode = .scaleAspectFill
-            imageView.layer.cornerRadius = 12
+            imageView.layer.cornerRadius = 5
+            //imageView.layer.cornerRadius = 12  圓
             imageView.clipsToBounds = true
+            imageView.layer.transform=CATransform3DMakeScale(1.5,1.5, 0);//缩小0.5倍
             mkMarker?.addSubview(imageView)
             mkMarker?.glyphImage = UIImage()
             mkMarker?.markerTintColor = .clear
+            
             
             mkMarker?.displayPriority = .required
             mkMarker?.titleVisibility = .adaptive
