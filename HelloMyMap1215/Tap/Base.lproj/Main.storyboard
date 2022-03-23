@@ -75,8 +75,8 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vts-rN-fi6">
-                                <rect key="frame" x="20" y="21" width="44" height="31"/>
-                                <buttonConfiguration key="configuration" style="plain" image="person.crop.circle" catalog="system"/>
+                                <rect key="frame" x="20" y="21" width="52" height="31"/>
+                                <buttonConfiguration key="configuration" style="plain" image="person.2" catalog="system"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請在地圖上設置圖片拍照地點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byS-7t-Rre">
                                 <rect key="frame" x="94" y="45" width="226" height="21"/>
@@ -368,7 +368,7 @@
         <image name="globe.asia.australia" catalog="system" width="128" height="121"/>
         <image name="globe.asia.australia.fill" catalog="system" width="128" height="121"/>
         <image name="map" catalog="system" width="128" height="110"/>
-        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
+        <image name="person.2" catalog="system" width="128" height="81"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

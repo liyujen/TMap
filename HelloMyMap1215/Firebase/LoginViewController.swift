@@ -1,8 +1,8 @@
 //
 //  LoginViewController.swift
-//  DemoFirebase
+//  TMap
 //
-//  Created by 李世文 on 2021/9/5.
+//  Created by student on 2022/3/17.
 //
 
 import UIKit
@@ -20,7 +20,7 @@ class LoginViewController: UIViewController,GIDSignInDelegate {
     
     @IBOutlet weak var appleLogin: UIView!
     
-    @IBOutlet weak var privacyBtn: UIButton!
+//    @IBOutlet weak var privacyBtn: UIButton!
     
     //Firebase
     //當用戶的登入狀態發生變化時會調用此 Listener
@@ -188,4 +188,15 @@ class LoginViewController: UIViewController,GIDSignInDelegate {
         
         GIDSignIn.sharedInstance()?.signIn()
     }
+
+    @IBAction func privacyBtn(_ sender: AnyObject) {
+
+    //    @objc func privacyBtn(){
+        print("inside")
+        if let url = URL(string: "https://pages.flycricket.io/tmap/privacy.html"){
+        
+            UIApplication.shared.open(url, options:[:])}
+        
+    
+}
 }

@@ -39,8 +39,7 @@ class AnnotationDataGetter{
     func fetchOtherUserAnnotationData(){
         print("fetchAnnotationData")
         let ref = Database.database().reference().child("Annotation/"
-//                                                        +Auth.auth().currentUser!.uid
-        )
+                                                        + Auth.auth().currentUser!.uid)
         ref.observe(.childAdded, with:{ (snapshot)  in
             
             let data = AnnotationData(snapShot: snapshot)

@@ -20,6 +20,7 @@ class MyMapViewController: UIViewController{
     @IBOutlet weak var mapTypeChanged: UISegmentedControl!
     @IBOutlet weak var changeModeBtn: UIButton!
     
+    
     @IBOutlet var imageV: UIImageView!
     
     @IBOutlet weak var hintLabel: UILabel!
@@ -30,6 +31,7 @@ class MyMapViewController: UIViewController{
     var myMapViewTapRecognizer : UITapGestureRecognizer?
     
     var annotationDataGetter: AnnotationDataGetter?
+   
     //addPictureMode開關
     var addPictureMode : DarwinBoolean? {
         didSet{
@@ -39,6 +41,7 @@ class MyMapViewController: UIViewController{
                 addTap.isHidden = true
                 hintLabel.isHidden = false
                 mapTypeChanged.isHidden = false
+                
                 centerOnUserLocation()
                 myMapView.addGestureRecognizer(myMapViewTapRecognizer!)
             }else if addPictureMode == false{
@@ -47,6 +50,7 @@ class MyMapViewController: UIViewController{
                 addTap.isHidden = false
                 hintLabel.isHidden = true
                 mapTypeChanged.isHidden = true
+                
                 myMapView.removeGestureRecognizer(myMapViewTapRecognizer!)
             }
         }
@@ -81,7 +85,9 @@ class MyMapViewController: UIViewController{
         centerMapOnUserLocation()
         configComponent()
         configDataGetter()
+        configOtherUserDataGetter()
         
+       
         addPictureMode = false
         
         //出現方法
@@ -124,7 +130,10 @@ class MyMapViewController: UIViewController{
         annotationDataGetter = AnnotationDataGetter(mapView: myMapView)
         annotationDataGetter?.fetchAnnotationData()
     }
-    
+    func configOtherUserDataGetter(){
+        annotationDataGetter = AnnotationDataGetter(mapView: myMapView)
+        annotationDataGetter?.fetchOtherUserAnnotationData()
+    }
     
     @objc func addTapAct(){
         addPictureMode = true
@@ -192,19 +201,22 @@ class MyMapViewController: UIViewController{
 
 func centerOnUserLocation() {
     print("使用者位置在這")
-    guard let coordinates = locationManager.location?.coordinate else { return }
+//    guard let coordinates = locationManager.location?.coordinate else { return }
+    let region = myMapView.region
+    let center = region.center
+//    else { return }
     
     let zoomWidth = myMapView.visibleMapRect.size.width
     var meter : Double = 20
     if zoomWidth < 3694 {
         meter = zoomWidth * 20/3694
     }
-    let coordinateRegion = MKCoordinateRegion(center: coordinates, latitudinalMeters: meter, longitudinalMeters: meter)
+    let coordinateRegion = MKCoordinateRegion(center: center, latitudinalMeters: meter, longitudinalMeters: meter)
     myMapView.setRegion(coordinateRegion, animated: true)
-    
-}
-}
+   
 
+}
+}
 
 
 
@@ -268,7 +280,9 @@ extension MyMapViewController:MKMapViewDelegate{
         var mkMarker = mapView.dequeueReusableAnnotationView(withIdentifier: "Markers") as? MKMarkerAnnotationView
         
         if mkMarker == nil {
-            mkMarker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "Markers")
+           mkMarker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "Markers")
+            
+           
         }
         
         //        if let headShot = (annotation as! PersonAnnotation).smallHeadShot{
@@ -298,11 +312,11 @@ extension MyMapViewController:MKMapViewDelegate{
                     else { return }
                     imageView.image = image
                     
-                    //                    //出現方法
-                    //                    self.imageV.frame
-                    //                    imageV.image = UIImage(data: data)
+                    //出現方法
+                    //self.imageV.frame
+                    //imageV.image = UIImage(data: data)
                     //                    self.myMapView.addSubview(imageV)
-                    //                   // imageV.isHidden = false
+                    // imageV.isHidden = false
                 }
             }
             
@@ -320,8 +334,8 @@ extension MyMapViewController:MKMapViewDelegate{
             mkMarker?.titleVisibility = .adaptive
             
         }
-        
-        
+//        myMapView.setCenter(mkMarker.coordinate, animated: true)
+        //mkMarker?.canShowCallout = true
         return mkMarker
     }
     

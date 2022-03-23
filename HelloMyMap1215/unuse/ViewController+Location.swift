@@ -161,3 +161,21 @@
 ////}
 ////}
 ////
+
+
+//enum StoreType{
+//  case Annotation
+//}
+//class StoreInfo : NSObject, MKAnnotation{
+//    var coordinate: CLLocationCoordinate2D
+//    var title: String?
+//    var subtitle: String?
+//
+//    var streType:StoreType?
+//
+//
+//    init(coordinate: CLLocationCoordinate2D) {
+//        self.coordinate = coordinate
+//
+//    }
+//}
